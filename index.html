@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citas Veterinarias</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="icon" href="./img/huellitas sanas v4.ico">
+    <script src="./js/main.js" defer></script>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="#" class="logo"><img src="./img/huellitas sanas v6.png" alt="" class="img"></a>
+            <button class="nav-toggle" aria-label="Abrir Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu">
+                <li class="nav-menu-item"><a href="#" class="nav-menu-link nav-link">Inicio</a></li>
+                <li class="nav-menu-item"><a href="#boton" class="nav-menu-link nav-link">Agendar Cita</a></li>
+                <li class="nav-menu-item"><a href="#titulosp" class="nav-menu-link nav-link">Testimonios</a></li>
+                <li class="nav-menu-item"><a href="#galeria" class="nav-menu-link nav-link">Galeria</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="alertas">
+            <div class="modal" >
+                <div class="modal-content alerta">
+                    <span class="closeicon"><i class="fa fa-times"></i></span>
+                    <div class="modal-body">
+                        <span class="icon"><i class="fa fa-exclamation-circle"></i></span>
+                        <div class="right-items">
+                            <div class="titulo-alert">
+                                <h1>¡Alerta!</h1>
+                            </div>
+                            <div class="texto-alert">
+                                <h3 id="alert"></h3>
+                            </div>
+                            <button class="okbtn">Aceptar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal2">
+                <div class="modal-content exito">
+                    <span class="closeicon2"><i class="fa fa-times"></i></span>
+                    <div class="modal-body">
+                        <span class="icon"><i class="fa fa-thumbs-up"></i></span>
+                        <div class="right-items">
+                            <div class="titulo-alert">
+                                <h1>¡Exito!</h1>
+                            </div>
+                            <div class="texto-alert">
+                                <h3 id="alert2"></h3>
+                            </div>
+                            <button class="okbtn2">Aceptar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h1 class="titulosp">Veterinaria Huellitas Sanas </h1>
+
+        <button id="boton" class="boton" onclick="bform()">Agendar Cita</button>
+        <div class="formulario">
+            <form class="form" action="">
+                <span class="cerrar"><i class="fa fa-times"></i></span>
+                <h1 class="titulod">Datos de la Mascota</h1>
+                <div class="input-group">
+                    <label for="">Nombre de la Mascota</label>
+                    <input type="text" id="nombre-mascota" placeholder="Ingrese nombre de su mascota">
+                    <label for="">Nombre del Dueño</label>
+                    <input type="text" id="nombre-dueño" placeholder="Ingrese el nombre del dueño">
+                    <label for="">Telefono</label>
+                    <input type="tel" id="num-tel" pattern="[0-9]+" maxlength="10"
+                        placeholder="Ingrese su numero de telefono">
+                    <label for="">Tipo de Mascota</label>
+                    <select name="" id="tipo-animal">
+                        <option disabled selected hidden value="">Seleccione el tipo de Mascota</option>
+                        <option value="Gato">Gato</option>
+                        <option value="Perro">Perro</option>
+                        <option value="Ave">Ave</option>
+                        <option value="Reptil">Reptil</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                    <label for="">Fecha</label>
+                    <input type="date" id="fecha">
+                    <label for="">Hora</label>
+                    <input type="time" id="hora">
+                    <label for="">Sintomas</label>
+                    <textarea name="Descri" id="descri" cols="30" rows="10"
+                        placeholder="Ingrese Los Sintomas de la Mascota"></textarea>
+                    <div class="botones">
+                        <button class="boton-agregar" onclick="alertas()">Agregar</button>
+                        <button class="boton-cerrar">Salir</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="filtrar">
+            <h1 class="titulosp">Filtrar Por</h1>
+            <input id="btabierto" class="btabierto" type="radio" name="filtro" onclick="filtro()" value="Abiertas"> Abiertas
+            <input id="btcerrado" class="btcerrado" type="radio" name="filtro" onclick="filtro()" value="Cerradas"> Cerradas
+            <input id="btcanceladas" class="btcanceladas" type="radio" name="filtro" onclick="filtro()" value="Canceladas"> Canceladas
+        </div>
+        <section>
+            <div class="babierto">
+                <div id="abierto"></div>
+            </div>
+            <div class="bcerrado">
+                
+                <div id="cerrado"></div>
+            </div>
+            <div class="bcanceladas">
+                
+                <div id="canceladas"></div>
+            </div>
+            <h1 id="titulosp" class="titulosp">Testimonios</h1>
+            <div class="comentarios">
+                <div class="contenedor">
+                    <div class="perfil">
+                        <img src="./img/foto-1.png" alt="" class="fperfil">
+                    </div>
+                    <div class="ptexto">
+                        <div class="grupo-1">
+                            <p class="dueño">- Marcos Duarte</p>
+                            <div class="puntuacion">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="testimonio">"Excelente atención para nuestras mascotas. El equipo de la veterinaria es
+                            amable,
+                            profesional y siempre se preocupa por el bienestar de nuestros peludos amigos."</p>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="perfil">
+                        <img src="./img/foto-3.png" alt="" class="fperfil">
+                    </div>
+                    <div class="ptexto">
+                        <div class="grupo-1">
+                            <p class="dueño">- Nico Robin</p>
+                            <div class="puntuacion">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="testimonio">"Mi experiencia en esta veterinaria fue excepcional. Los veterinarios son
+                            muy dedicados y se nota que aman lo que hacen. Recomiendo sus servicios a todos los dueños
+                            de mascotas."</p>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="perfil">
+                        <img src="./img/foto-4.png" alt="" class="fperfil">
+                    </div>
+                    <div class="ptexto">
+                        <div class="grupo-1">
+                            <p class="dueño">- Yamato</p>
+                            <div class="puntuacion">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="testimonio">"Increíble servicio veterinario. Siempre nos dan la tranquilidad de que
+                            nuestras mascotas están en buenas manos. Gracias por el cuidado y la atención
+                            personalizada."</p>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="perfil">
+                        <img src="./img/foto-2.png" alt="" class="fperfil">
+                    </div>
+                    <div class="ptexto">
+                        <div class="grupo-1">
+                            <p class="dueño">- Toony Chopper</p>
+                            <div class="puntuacion">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="testimonio">"Mi gato recibió la mejor atención en esta veterinaria. El personal es
+                            conocedor y se toma el tiempo necesario para explicar cada procedimiento. Definitivamente,
+                            un lugar de confianza."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="sgaleria">
+            <h1 id="galeria" class="titulosp">Galeria</h1>
+            <div class="contenedores-mascot">
+                <img src="./img/mascotas-7.jpg" alt="" class="fotomascota">
+                <img src="./img/mascota-1.png" alt="" class="fotomascota">
+                <img src="./img/mascota-2.png" alt="" class="fotomascota">
+                <img src="./img/mascotas-3.jpg" alt="" class="fotomascota">
+                <img src="./img/mascotas-4.jpg" alt="" class="fotomascota">
+                <img src="./img/mascotas-5.jpg" alt="" class="fotomascota">
+                <img src="./img/mascotas-6.jpg" alt="" class="fotomascota">
+            </div>
+        </section>
+    </main>
+    <footer class="pie-de-pagina">
+        <div class="grupo-1">
+            <div class="box">
+                <figure>
+                    <a href="#"><img src="./img/huellitas sanas v6.png" alt=""></a>
+                </figure>
+            </div>
+            <div class="box">
+                <h2>SOBRE ESTA PÁGINA</h2>
+                <hr>
+                <P>Este sitio web es parte de un proyecto educativo y no representa una veterinaria real. Todos los
+                    productos y detalles presentados son ficticios y se han creado con fines exclusivamente académicos.
+                    No es posible realizar citas reales a través de este sitio. Para cualquier consulta o pregunta
+                    relacionada con este proyecto o diseño de pagina web, no dudes en ponerte en contacto con nosotros
+                    escribiendo a: caballeroyesid7@gmail.com. Agradecemos tu comprensión y colaboración.
+                </P>
+            </div>
+            <div class="box">
+                <h2>NUESTRAS REDES SOCIALES</h2>
+                <hr>
+                <div class="red-social">
+                    <a href=""> <i class="fab fa-youtube"></i>
+                    </a><a href=""><i class="fab fa-facebook"></i>
+                    </a><a href=""> <i class="fab fa-instagram"></i></a>
+
+                </div>
+            </div>
+        </div>
+        <div class="grupo-2">
+            <small>Copyright &#169 2023. Todos los derechos reservados.</small>
+        </div>
+    </footer>
+</body>
+
+</html>
